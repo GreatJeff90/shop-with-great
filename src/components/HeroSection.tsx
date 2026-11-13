@@ -7,7 +7,7 @@ import { ArrowUpRight, Smartphone } from "lucide-react";
 
 export default function HeroSection() {
   return (
-    <section className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-8 sm:pt-14 select-none">
+    <section className="relative w-full bg-white overflow-hidden flex flex-col items-center pt-8 sm:pt-12 select-none">
       {/* Center Copy & CTA */}
       <div className="relative z-20 w-full max-w-3xl mx-auto px-4 sm:px-6 text-center flex flex-col items-center">
         <motion.h1
@@ -19,7 +19,6 @@ export default function HeroSection() {
           <span className="block">One Stop Gadget</span>
           <span className="inline-flex items-center justify-center gap-x-2 sm:gap-x-3 mt-1 whitespace-nowrap">
             <span>Store</span>
-            {/* Inline Tilted Device Badge */}
             <motion.span
               whileHover={{ rotate: 0, scale: 1.08 }}
               whileTap={{ rotate: 0, scale: 0.96 }}
@@ -58,22 +57,22 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Showcase Stage: Clean top & bottom margins on mobile, edge-anchored on desktop */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto h-[275px] sm:h-[420px] md:h-[490px] mt-6 mb-6 sm:mt-4 sm:mb-0 flex items-center justify-center overflow-hidden pointer-events-none">
+      {/* Showcase Stage: Responsive aspect ratio prevents top/bottom clipping on any screen */}
+      <div className="relative z-10 w-full max-w-5xl mx-auto px-4 mt-6 mb-6 sm:mt-6 sm:mb-2 flex items-center justify-center overflow-hidden pointer-events-none">
         {/* Mobile Image (<640px) */}
         <motion.div
           initial={{ opacity: 0, y: 20, scale: 0.96 }}
           animate={{ opacity: 1, y: 0, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-auto relative flex sm:hidden w-[520px] h-[520px] shrink-0 items-center justify-center"
+          className="pointer-events-auto relative flex sm:hidden w-full max-w-[340px] aspect-[4/3] items-center justify-center"
         >
           <Image
             src="/hero.png"
             alt="Shop with Great mobile electronics showcase"
             fill
-            sizes="520px"
+            sizes="340px"
             priority
-            className="object-contain drop-shadow-[0_14px_22px_rgba(0,0,0,0.12)]"
+            className="object-contain scale-[1.85] drop-shadow-[0_14px_22px_rgba(0,0,0,0.12)]"
           />
         </motion.div>
 
@@ -83,15 +82,15 @@ export default function HeroSection() {
           animate={{ opacity: 1, y: 0, scale: 1 }}
           whileHover={{ scale: 1.02 }}
           transition={{ duration: 0.7, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
-          className="pointer-events-auto relative hidden sm:flex sm:w-[1100px] md:w-[1320px] sm:h-[1100px] md:h-[1320px] sm:translate-y-3 md:translate-y-4 shrink-0 items-center justify-center"
+          className="pointer-events-auto relative hidden sm:flex w-full max-w-[760px] lg:max-w-[840px] aspect-[16/9] items-center justify-center"
         >
           <Image
             src="/hero-desktop.png"
             alt="Shop with Great desktop electronics showcase: smartphones, foldables, iPad, JBL speaker, headphones, and PlayStation 5"
             fill
-            sizes="(max-width: 768px) 1100px, 1320px"
+            sizes="(max-width: 1024px) 760px, 840px"
             priority
-            className="object-contain drop-shadow-[0_18px_28px_rgba(0,0,0,0.12)]"
+            className="object-contain scale-[1.55] drop-shadow-[0_18px_28px_rgba(0,0,0,0.12)]"
           />
         </motion.div>
       </div>
